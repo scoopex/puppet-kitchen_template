@@ -1,0 +1,5 @@
+---
+kitchen_template:
+  test:
+    test1: foo
+    test2: foo

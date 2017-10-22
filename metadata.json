@@ -1,0 +1,12 @@
+{
+  "name": "kitchen_template",
+  "version": "0.1.0",
+  "author": "Marc Schoechlin",
+  "summary": "A template for testing puppet code in kitchen",
+  "license": "BSD 2-Clause License",
+  "source": "https://github.com/scoopex/puppet-kitchen_template",
+  "project_page": null,
+  "dependencies": [
+  ],
+  "issues_url": "https://github.com/scoopex/puppet-kitchen_template/issues"
+}

@@ -1,0 +1,9 @@
+---
+:backends:
+  - yaml
+:merge_behavior: deeper
+:yaml:
+  :datadir: /tmp/kitchen/hiera
+:hierarchy:
+  - localtest
+

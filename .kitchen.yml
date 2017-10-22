@@ -1,0 +1,65 @@
+# built following
+# http://ehaselwanter.com/en/blog/2014/05/08/using-test-kitchen-with-puppet/
+# and ported concepts from test-kitchen using chef
+---
+driver:
+  provision: true
+
+provisioner:
+  name: puppet_apply
+  manifests_path: manifests
+  manifest: local.pp
+  modules_path: modules
+  hiera_data_path: hieradata
+  hiera_deep_merge: true
+  puppet_verbose: true
+  puppet_debug: false
+  require_chef_for_busser: false
+  require_puppet_repo: false
+  custom_options: '--show_diff'
+  verify_host_key: false
+
+transport:
+  name: sftp
+
+busser:
+  ruby_bindir: /usr/bin
+
+platforms:
+  - name: ubuntu-16.04-vagrant-kitchen_template
+    driver_plugin: vagrant
+    driver:
+      vagrantfile_erb: Vagrantfile.erb
+      box: ubuntu/xenial64
+      box_url: http://atlas.hashicorp.com/ubuntu/boxes/xenial64
+      #network:
+      #- ['private_network', {ip: '192.168.33.33'}]
+      #- ["forwarded_port", {guest: 8080, host: 8080}]
+      provisioner:
+        require_puppet_repo: true
+        puppet_apt_repo: "http://apt.puppetlabs.com/puppetlabs-release-xenial.deb"
+# TODO: Fix this
+#  - name: ubuntu-16.04-kitchen_template
+#    driver_plugin: docker
+#    driver_config:
+#      disable_upstart: false
+#      image: ubuntu-upstart:14.04
+#      forward:
+#       - 8080:80
+#       - 8443:443
+#       - 9080:8080
+#      privileged: true
+#      remove_images: <%= ENV['KITCHEN_REMOVE_IMAGES'] || false %>
+#      require_chef_omnibus: false
+#      run_command: /sbin/init --verbose --debug
+#      use_cache: <%= ENV['KITCHEN_USE_CACHE'] || true %>
+#      use_sudo: false
+#      volume: /sys/fs/cgroup
+#      provision_command:
+#        - wget -P /var/tmp http://apt.puppetlabs.com/puppetlabs-release-trusty.deb &&
+#          dpkg -i /var/tmp/puppetlabs-release-trusty.deb &&
+#          apt-get update -y &&
+#          apt-get install -y puppet
+
+suites:
+  - name: default
