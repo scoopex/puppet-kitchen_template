@@ -1,7 +1,7 @@
 # == Class: kitchen_template::profiles::lighttpd
 #
 class kitchen_template::profiles::lighttpd(
-	$installed = true,
+	$installed,
   $message = "WELCOME"
 ){
 	if $installed {

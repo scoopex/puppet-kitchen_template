@@ -1,3 +1,3 @@
 ---
-kitchen_template::profiles::lighthttpd:
-  installed: true
+kitchen_template::profiles::lighttpd::installed: true
+kitchen_template::profiles::lighttpd::message: "Welcome at the demo installation"
