@@ -1,6 +1,16 @@
+Overview
+--------
+
+This puppet project template provides the following aspects:
+
+  * puppet template with demo code which installs a lighthttpd
+  * convenient development environment which downloads and creates a ubuntu xenial image in a virtualbox environment
+  * serverspec tests are executed in the environment
+
 Installation of the test environment
 ------------------------------------
 
+  * Install virtualbox: https://www.virtualbox.org/wiki/Linux_Downloads
   * Installation of vagrant
    * see: https://www.vagrantup.com/downloads.html
    * Download und Installation
