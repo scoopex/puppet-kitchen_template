@@ -1,6 +1,6 @@
-# == Class: kitchen_template::profiles::lighthttpd
+# == Class: kitchen_template::profiles::lighttpd
 #
-class kitchen_template::profiles::lighthttpd(
+class kitchen_template::profiles::lighttpd(
 	$installed = true,
   $message = "WELCOME"
 ){
@@ -13,9 +13,9 @@ class kitchen_template::profiles::lighthttpd(
 			enable     => true
 		}
 
-    file { "/var/www/test.html":
-      owner   => "www-run",
-      group   => "www-run",
+    file { "/var/www/html/test.html":
+      owner   => "www-data",
+      group   => "www-data",
       mode    => '0644',
       content => "<h1>${message}</h1>",
     }
@@ -23,7 +23,7 @@ class kitchen_template::profiles::lighthttpd(
 		 package{ 'lighttpd':
 			 ensure => absent,
 		 }
-     file { "/var/www/test.html":
+     file { "/var/www/html/test.html":
 			 ensure => absent,
      }
   }
