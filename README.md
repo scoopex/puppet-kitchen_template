@@ -1,7 +1,7 @@
 Installation of the test environment
 ------------------------------------
 
-  * Installtion of vagrant
+  * Installation of vagrant
    * see: https://www.vagrantup.com/downloads.html
    * Download und Installation
      ```
