@@ -21,15 +21,15 @@ end
 #----------------------------------------------------------------------
 # testing basic service
 #----------------------------------------------------------------------
-describe package('docker-engine') do
+describe package('lighttpd') do
   it { should be_installed }
 end
 
-describe service('docker') do
+describe service('lighttpd') do
   it { should be_enabled }
 end
 
-describe service('docker') do
+describe service('lighttpd') do
   it { should be_running }
 end
 
@@ -38,8 +38,8 @@ end
 # testing basic function
 #----------------------------------------------------------------------
 
-describe command('docker run hello-world') do
-  its(:stdout) { should match /Hello from Docker!/ }
+describe command('curl http://127.0.0.1/test.html') do
+  its(:stdout) { should match /WELCOME/ }
 end
 
 #----------------------------------------------------------------------

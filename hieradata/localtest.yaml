@@ -1,5 +1,3 @@
 ---
-kitchen_template:
-  test:
-    test1: foo
-    test2: foo
+kitchen_template::profiles::lighthttpd:
+  installed: true
