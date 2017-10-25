@@ -1,6 +1,8 @@
 Overview
 --------
 
+This project based on https://github.com/scoopex/puppet-kitchen_template
+
 This puppet project template provides the following aspects:
 
   * puppet template with demo code which installs a lighthttpd
