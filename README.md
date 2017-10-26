@@ -107,10 +107,13 @@ Cheat Sheet
 Use it in your own project
 ------------------------------------
 
- * Fork in on github
+ * Fork in on github, name it puppet-<projectname>
  * Clone the repo
  * Replace al occurrences of the template name
    ```
    cd <project>
-   sed -i 
+   PROJECT_NAME="$(basename $PWD|sed '~s,puppet-,,')"
+   grep -n -r "kitchen_template" .|cut -d ':' -f1|sort -u|xargs sed -i "~s,kitchen_template,${PROJECT_NAME},g"
    ```
+ * Execute the steps in section "Develop and test puppet code"
+ * Commit && Push
