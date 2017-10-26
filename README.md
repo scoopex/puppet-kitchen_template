@@ -104,3 +104,13 @@ Cheat Sheet
   kitchen destroy <suite>  Destroy a certain test system
   ```
 
+Use it in your own project
+------------------------------------
+
+ * Fork in on github
+ * Clone the repo
+ * Replace al occurrences of the template name
+   ```
+   cd <project>
+   sed -i 
+   ```
