@@ -84,17 +84,18 @@ Develop and test puppet code
    ```
  * Deploy a test system and login to the system for debugging purposes
    ```
-   kitchen create
-   kitchen login
+   kitchen list
+   kitchen create <instance>
+   kitchen login <instance>
    sudo bash
    ```
  * Execute puppet withe the current code
    ```
-   kitchen converge
+   kitchen converge <instance>
    ```
  * Execute serverspec tests
    ```
-   kitchen verify
+   kitchen verify <instance>
    ```
 
 
