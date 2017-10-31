@@ -121,3 +121,22 @@ Use it in your own project
    ```
  * Execute the steps in section "Develop and test puppet code"
  * Commit && Push
+
+Merge changes of the template to your project
+---------------------------------------------
+
+ * Using GIT
+   ```
+   git remote add upstream https://github.com/scoopex/puppet-kitchen_template.git
+   git fetch upstream
+   git checkout master
+   git merge upstream/master
+   ```
+ * Manual (timeconsuming way) way
+   ```
+   cd /tmp
+   git clone https://github.com/scoopex/puppet-kitchen_template.git
+   cd /your-project
+   diff -r --brief -x .librarian -x .git -x Gemfile.lock -x .kitchen -x .tmp /tmp/puppet-kitchen_template
+   vim -d /tmp/puppet-kitchen_template/<file> <file>
+   ```
