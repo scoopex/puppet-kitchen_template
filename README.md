@@ -1,7 +1,6 @@
 Overview
 --------
 
-
 This puppet project template provides the following aspects:
 
   * puppet template with demo code which installs a lighthttpd
@@ -82,6 +81,10 @@ Develop and test puppet code
    ```
    cd puppet-kitchen_template
    ```
+ * Add Puppet modules and edit sourcecode
+   ```
+   vim Puppetfile manifests/* test/integration/default/serverspec/*
+   ```
  * Deploy a test system and login to the system for debugging purposes
    ```
    kitchen list
@@ -97,7 +100,6 @@ Develop and test puppet code
    ```
    kitchen verify <instance>
    ```
-
 
 Cheat Sheet
 -----------
