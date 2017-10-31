@@ -2,7 +2,7 @@
 #
 class kitchen_template::profiles::lighttpd(
 	$installed,
-  $message = "WELCOME"
+  $message = "WELCOME TO THE DEMO INSTALLATION"
 ){
 	if $installed {
 		package{ 'lighttpd':

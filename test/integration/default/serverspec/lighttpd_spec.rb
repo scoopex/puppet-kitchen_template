@@ -39,7 +39,7 @@ end
 #----------------------------------------------------------------------
 
 describe command('curl http://127.0.0.1/test.html') do
-  its(:stdout) { should match /WELCOME/ }
+  its(:stdout) { should match(/Welcome/) }
 end
 
 #----------------------------------------------------------------------
