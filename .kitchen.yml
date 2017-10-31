@@ -10,7 +10,7 @@ provisioner:
   manifests_path: manifests
   manifest: local.pp
   modules_path: modules
-  hiera_data_path: hieradata
+  hiera_data_path: data
   hiera_deep_merge: true
   puppet_verbose: true
   puppet_debug: false
@@ -38,7 +38,7 @@ platforms:
       provisioner:
         require_puppet_repo: true
         puppet_apt_repo: "http://apt.puppetlabs.com/puppetlabs-release-xenial.deb"
-# TODO: Fix this
+# TODO: Fix this #1
 #  - name: ubuntu-16.04-kitchen_template
 #    driver_plugin: docker
 #    driver_config:
