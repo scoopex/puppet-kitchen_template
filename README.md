@@ -1,7 +1,6 @@
 Overview
 --------
 
-This project is based/located on https://github.com/scoopex/puppet-kitchen_template
 
 This puppet project template provides the following aspects:
 
@@ -11,6 +10,14 @@ This puppet project template provides the following aspects:
     * basic installation of puppet 4 client
     * automatic installation of puppet modules specified in the "Puppetfile"
   * serverspec tests are executed in the environment
+
+Resources
+---------
+
+ * this project is based/located on https://github.com/scoopex/puppet-kitchen_template
+ * test kitchen: https://github.com/test-kitchen/test-kitchen
+ * serverspec tests
+  * ressources : http://serverspec.org/resource_types.html
 
 Installation of the test environment
 ------------------------------------
