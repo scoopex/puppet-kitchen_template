@@ -17,6 +17,8 @@ Resources
  * test kitchen: https://github.com/test-kitchen/test-kitchen
  * serverspec tests
   * ressources : http://serverspec.org/resource_types.html
+ * Puppet Modules: https://forge.puppet.com/
+ * Puppet FAQ: https://ask.puppet.com/question/32373/is-there-a-document-on-how-to-setup-test-kitchen-with-puppet/
 
 Installation of the test environment
 ------------------------------------
