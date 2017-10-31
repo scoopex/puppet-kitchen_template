@@ -1,12 +1,15 @@
 Overview
 --------
 
-This project based on https://github.com/scoopex/puppet-kitchen_template
+This project is based/located on https://github.com/scoopex/puppet-kitchen_template
 
 This puppet project template provides the following aspects:
 
   * puppet template with demo code which installs a lighthttpd
-  * convenient development environment which downloads and creates a ubuntu xenial image in a virtualbox environment
+  * convenient development environment 
+    * which downloads and creates a ubuntu xenial image in a virtualbox environment
+    * basic installation of puppet 4 client
+    * automatic installation of puppet modules specified in the "Puppetfile"
   * serverspec tests are executed in the environment
 
 Installation of the test environment
@@ -109,7 +112,8 @@ Use it in your own project
 
  * Fork in on github, name it puppet-<projectname>
  * Clone the repo
- * Replace al occurrences of the template name
+ * Rename the folder to the name of your project, "puppet-<your-project-name>
+ * Replace all occurrences of the template name
    ```
    cd <project>
    PROJECT_NAME="$(basename $PWD|sed '~s,puppet-,,')"
