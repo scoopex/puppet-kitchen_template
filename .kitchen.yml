@@ -38,28 +38,29 @@ platforms:
       provisioner:
         require_puppet_repo: true
         puppet_apt_repo: "http://apt.puppetlabs.com/puppetlabs-release-xenial.deb"
-# TODO: Fix this #1
-#  - name: ubuntu-16.04-kitchen_template
-#    driver_plugin: docker
-#    driver_config:
-#      disable_upstart: false
-#      image: ubuntu-upstart:14.04
+  - name: ubuntu-16.04-docker-kitchen_template
+    driver_plugin: docker
+    driver_config:
+      image: ubuntu:16.04
 #      forward:
 #       - 8080:80
 #       - 8443:443
 #       - 9080:8080
-#      privileged: true
-#      remove_images: <%= ENV['KITCHEN_REMOVE_IMAGES'] || false %>
-#      require_chef_omnibus: false
-#      run_command: /sbin/init --verbose --debug
-#      use_cache: <%= ENV['KITCHEN_USE_CACHE'] || true %>
-#      use_sudo: false
-#      volume: /sys/fs/cgroup
-#      provision_command:
-#        - wget -P /var/tmp http://apt.puppetlabs.com/puppetlabs-release-trusty.deb &&
-#          dpkg -i /var/tmp/puppetlabs-release-trusty.deb &&
-#          apt-get update -y &&
-#          apt-get install -y puppet
+      privileged: true
+      remove_images: <%= ENV['KITCHEN_REMOVE_IMAGES'] || false %>
+      require_chef_omnibus: false
+      use_cache: <%= ENV['KITCHEN_USE_CACHE'] || true %>
+      use_sudo: false
+      volume: /sys/fs/cgroup
+      provision_command:
+        - apt-get update 
+        - apt-get install gem ruby openssl -y
+# 			  -	openssl req -x509  -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/localtest.key -out /etc/ssl/localtest.crt -subj '/C=DE/ST=./L=Stuttgart/O=./OU=FOO/CN'
+#				-	mkdir -p /etc/foo-ssl/star_foobar_net/ 
+#				-	ln -s /etc/ssl/localtest.key  /etc/foo-ssl/star_foobar_net/star_foobar_net.key 
+#				-	ln -s /etc/ssl/localtest.crt  /etc/foo-ssl/star_foobar_net/star_foobar_net.crt 
+#				-	ln -s /etc/ssl/localtest.crt  /etc/foo-ssl/star_foobar_net/star_foobar_net.ca-bundle 
+#				-	ln -s /etc/ssl/localtest.crt  /etc/foo-ssl/star_foobar_net/star_foobar_net.pem 
 
 suites:
   - name: default
