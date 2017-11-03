@@ -26,7 +26,7 @@ busser:
   ruby_bindir: /usr/bin
 
 platforms:
-  - name: ubuntu-16.04-vagrant-kitchen_template
+  - name: ubuntu-16.04-vagrant-puppet4-kitchen_template
     driver_plugin: vagrant
     driver:
       vagrantfile_erb: Vagrantfile.erb
@@ -38,7 +38,7 @@ platforms:
       provisioner:
         require_puppet_repo: true
         puppet_apt_repo: "http://apt.puppetlabs.com/puppetlabs-release-xenial.deb"
-  - name: ubuntu-16.04-docker-kitchen_template
+  - name: ubuntu-16.04-docker-puppet5-kitchen_template
     driver_plugin: docker
     driver_config:
       image: ubuntu:16.04
@@ -64,3 +64,5 @@ platforms:
 
 suites:
   - name: default
+    includes: 
+      - ubuntu-16.04-docker-puppet5-kitchen_template
