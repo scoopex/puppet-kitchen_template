@@ -38,6 +38,7 @@ Resources
  * Misc
   * https://de.slideshare.net/MartinEtmajer/testdriven-infrastructure-with-puppet-test-kitchen-serverspec-and-rspec
   * http://ehaselwanter.com/en/blog/2014/05/08/using-test-kitchen-with-puppet/
+  * https://apache.googlesource.com/infrastructure-puppet-kitchen/
 
 Installation of the test environment
 ------------------------------------
