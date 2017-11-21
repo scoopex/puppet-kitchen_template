@@ -14,7 +14,10 @@ Resources
 ---------
 
  * this project is based/located on https://github.com/scoopex/puppet-kitchen_template
- * test kitchen: https://github.com/test-kitchen/test-kitchen
+ * test kitchen: 
+   * https://docs.chef.io/kitchen.html
+   * https://github.com/test-kitchen/test-kitchen
+   * https://docs.chef.io/config_yml_kitchen.html
  * serverspec tests
   * resources : http://serverspec.org/resource_types.html
  * Puppet Modules: https://forge.puppet.com/
