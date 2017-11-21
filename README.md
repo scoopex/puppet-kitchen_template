@@ -5,10 +5,23 @@ This puppet project template provides the following aspects:
 
   * puppet template with demo code which installs a lighthttpd
   * convenient development environment 
-    * which downloads and creates a ubuntu xenial image in a virtualbox environment
-    * basic installation of puppet 4 client
+    * download and create a ubuntu and debian image in a virtualbox environment
+    * download and create a ubuntu docker image 
+    * basic installation of puppet 4/5 client
     * automatic installation of puppet modules specified in the "Puppetfile"
-  * serverspec tests are executed in the environment
+  * check the setup using serverspec tests executed in the environment
+
+Why do i need that?
+
+  * reduce the need to develop on production anymore<BR>
+    (sometimes you still need this)
+  * test multiple variants of a setup on different operating systems
+  * prevent timeconsuming and git history polluting commit/push cycles
+  * easily test defined combinations of modules/roles
+  * provide convenient test setups for system development
+  * integrate automated tests to your ci-pipeline (i.e. jenkins)
+  * reduce resource overhead by simply throwing away outdated setups
+  * Execute tests remotely end very time efficient on AWS/EC2, Openstack, Vagrant, ...
 
 Resources
 ---------
@@ -22,6 +35,9 @@ Resources
   * resources : http://serverspec.org/resource_types.html
  * Puppet Modules: https://forge.puppet.com/
  * Puppet FAQ: https://ask.puppet.com/question/32373/is-there-a-document-on-how-to-setup-test-kitchen-with-puppet/
+ * Misc
+  * https://de.slideshare.net/MartinEtmajer/testdriven-infrastructure-with-puppet-test-kitchen-serverspec-and-rspec
+  * http://ehaselwanter.com/en/blog/2014/05/08/using-test-kitchen-with-puppet/
 
 Installation of the test environment
 ------------------------------------
@@ -147,7 +163,7 @@ Merge changes of the template to your project
    git checkout master
    git merge upstream/master
    ```
- * Manual (timeconsuming way) way
+ * Manual (time consuming way) way
    ```
    cd /tmp
    git clone https://github.com/scoopex/puppet-kitchen_template.git
@@ -155,3 +171,11 @@ Merge changes of the template to your project
    diff -r --brief -x .librarian -x .git -x Gemfile.lock -x .kitchen -x .tmp /tmp/puppet-kitchen_template
    vim -d /tmp/puppet-kitchen_template/<file> <file>
    ```
+
+Contribution
+------------
+
+ * file a bug on the github project: https://github.com/scoopex/puppet-kitchen_template/issues
+ * fork the project and improve the template
+ * create a pull/merge request
+
