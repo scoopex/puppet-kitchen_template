@@ -103,6 +103,12 @@ Develop and test puppet code
    ```
    cd puppet-kitchen_template
    ```
+ * Reset the environment<br>
+   (if you want to revert everything)
+   ```
+   kitchen destroy
+   rm -rf Gemfile.lock Puppetfile.lock .kitchen .librarian/ .tmp/
+   ```
  * Add Puppet modules and edit sourcecode
    ```
    vim Puppetfile manifests/* test/integration/default/serverspec/*
