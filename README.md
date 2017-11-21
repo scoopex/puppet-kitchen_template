@@ -132,18 +132,20 @@ Develop and test puppet code
 Cheat Sheet
 -----------
 
-  ```
-  Command                  Description
-  kitchen list             View all test suites
-  kitchen create           Create the target system (Vagrant)
-  kitchen create <suite>
-  kitchen converge <suite> Execute puppet (Puppet)
-  kitchen login <suite>    SSH Login
-  kitchen verify <suite>   Execute test suites (servespec)
-  kitchen test <suite>     Create, test and destroy system
-  kitchen destroy          Destroy all test systems
-  kitchen destroy <suite>  Destroy a certain test system
-  ```
+```
+Command                  Description
+kitchen list             View all test suites
+kitchen create           Create the target system (Vagrant)
+kitchen create <suite>
+kitchen converge <suite> Execute puppet (Puppet)
+kitchen login <suite>    SSH Login
+kitchen verify <suite>   Execute test suites (servespec)
+kitchen test <suite>     Create, test and destroy system
+kitchen destroy          Destroy all test systems
+kitchen destroy <suite>  Destroy a certain test system
+
+kitchen verify -l debug  Get enhanced debug information
+```
 
 Use it in your own project
 ------------------------------------

@@ -75,3 +75,8 @@ suites:
     includes:
       - debian-stretch-virtualbox-puppet4-kitchen_template
       - ubuntu-16.04-virtualbox-puppet4-kitchen_template
+
+verifier:
+    name: serverspec
+    #ruby_bindir: /usr/bin
+    #default_pattern: true
