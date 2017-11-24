@@ -29,6 +29,8 @@ platforms:
       vagrantfile_erb: Vagrantfile.erb
       box: ubuntu/xenial64
       box_url: http://atlas.hashicorp.com/ubuntu/boxes/xenial64
+      synced_folders:
+        - ['./files', '/tmp/files']
       #box: bento/ubuntu-17.10
       #box_url: https://app.vagrantup.com/bento/boxes/ubuntu-17.10
       #network:
@@ -46,6 +48,7 @@ platforms:
   - name: ubuntu-16.04-docker-puppet5-kitchen_template
     driver_plugin: docker
     driver_config:
+#     dockerfile: Dockerfile
       image: ubuntu:16.04
 #      forward:
 #       - 8080:80
@@ -66,7 +69,6 @@ platforms:
         - ln -s /etc/ssl/localtest.crt  /etc/foo-ssl/star_foobar_net/star_foobar_net.crt 
         - ln -s /etc/ssl/localtest.crt  /etc/foo-ssl/star_foobar_net/star_foobar_net.ca-bundle 
         - ln -s /etc/ssl/localtest.crt  /etc/foo-ssl/star_foobar_net/star_foobar_net.pem 
-
 suites:
   - name: default
 

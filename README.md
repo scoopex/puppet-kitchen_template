@@ -48,7 +48,7 @@ Resources
   * https://apache.googlesource.com/infrastructure-puppet-kitchen/
  * Librarian: http://librarian-puppet.com/
 
-Installation of the test environment
+How to start:
 ------------------------------------
 
   * Install virtualbox: https://www.virtualbox.org/wiki/Linux_Downloads
@@ -103,6 +103,32 @@ Installation of the test environment
        # Now the automatic invocation of bundler should install all the missing gems
        cd ..; cd puppet-kitchen_template
        ```
+Cheat Sheet
+-----------
+
+```
+Command                  Description
+kitchen list             View all test suites
+kitchen create           Create the target system (Vagrant)
+kitchen create <suite>
+kitchen converge <suite> Execute puppet (Puppet)
+kitchen login <suite>    SSH Login
+kitchen verify <suite>   Execute test suites (servespec)
+kitchen test <suite>     Create, test and destroy system
+kitchen destroy          Destroy all test systems
+kitchen destroy <suite>  Destroy a certain test system
+
+kitchen verify -l debug  Get enhanced debug information
+```
+
+Instance selection/handling:
+
+* Use "kitchen list" to identify instances
+* Add the full name of the instances to a certain command
+   * Kitches selects instances by regex matches, so think about naming schemes
+   * If you do not specify a regex ".*" is automatically assumed
+* Kitchen automatically create all permutations of suites and platforms, see .kitchen.yml
+
 
 Develop and test puppet code
 -------------------------------
@@ -143,23 +169,6 @@ Develop and test puppet code
    kitchen destroy <instance>
    ```
 
-Cheat Sheet
------------
-
-```
-Command                  Description
-kitchen list             View all test suites
-kitchen create           Create the target system (Vagrant)
-kitchen create <suite>
-kitchen converge <suite> Execute puppet (Puppet)
-kitchen login <suite>    SSH Login
-kitchen verify <suite>   Execute test suites (servespec)
-kitchen test <suite>     Create, test and destroy system
-kitchen destroy          Destroy all test systems
-kitchen destroy <suite>  Destroy a certain test system
-
-kitchen verify -l debug  Get enhanced debug information
-```
 
 Use it in your own project
 ------------------------------------
