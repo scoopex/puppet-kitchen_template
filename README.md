@@ -1,24 +1,29 @@
 Overview
 --------
 
-This puppet project template provides the following aspects:
+This template utilizes [Test Kitchen](http://kitchen.ci/) to test puppetcode.
+You can use this template to write new puppet modules or to enhance existing modules.
+
+It provides the following aspects:
 
   * puppet template with demo code which installs a lighthttpd
   * convenient development environment 
     * download and create a ubuntu and debian image in a virtualbox environment
     * download and create a ubuntu docker image 
     * basic installation of puppet 4/5 client
-    * automatic installation of puppet modules specified in the "Puppetfile"
+    * automatic installation of puppet modules specified in the "Puppetfile" using librarian
   * check the setup using serverspec tests executed in the environment
 
 Why do i need that?
 
-  * reduce the need to develop on production anymore<BR>
-    (sometimes you still need this)
-  * test multiple variants of a setup on different operating systems
-  * prevent timeconsuming and git history polluting commit/push cycles
-  * easily test defined combinations of modules/roles
   * provide convenient test setups for system development
+  * reduce the need to develop on production or shared testsystems<BR>
+    (sometimes you still need this, i.e. if you need special hardware to test your implementation)
+  * test multiple variants of a setup on different operating systems<BR>
+    (Ubuntu 14.04, 16.04, OpenSuse, ...)
+  * prevent time consuming and git history polluting edit locally, commit/push, puppet execution roundtrips
+  * automatically install needed puppet modules
+  * easily test defined combinations of modules/roles
   * integrate automated tests to your ci-pipeline (i.e. jenkins)
   * reduce resource overhead by simply throwing away outdated setups
   * Execute tests remotely end very time efficient on AWS/EC2, Openstack, Vagrant, ...
@@ -28,17 +33,20 @@ Resources
 
  * this project is based/located on https://github.com/scoopex/puppet-kitchen_template
  * test kitchen: 
+   * http://kitchen.ci/
    * https://docs.chef.io/kitchen.html
    * https://github.com/test-kitchen/test-kitchen
    * https://docs.chef.io/config_yml_kitchen.html
+   * https://docs.chef.io/plugin_kitchen_vagrant.html
  * serverspec tests
   * resources : http://serverspec.org/resource_types.html
- * Puppet Modules: https://forge.puppet.com/
- * Puppet FAQ: https://ask.puppet.com/question/32373/is-there-a-document-on-how-to-setup-test-kitchen-with-puppet/
- * Misc
+ * puppet modules: https://forge.puppet.com/
+ * puppet FAQ: https://ask.puppet.com/question/32373/is-there-a-document-on-how-to-setup-test-kitchen-with-puppet/
+ * misc
   * https://de.slideshare.net/MartinEtmajer/testdriven-infrastructure-with-puppet-test-kitchen-serverspec-and-rspec
   * http://ehaselwanter.com/en/blog/2014/05/08/using-test-kitchen-with-puppet/
   * https://apache.googlesource.com/infrastructure-puppet-kitchen/
+ * Librarian: http://librarian-puppet.com/
 
 Installation of the test environment
 ------------------------------------
@@ -111,14 +119,16 @@ Develop and test puppet code
    ```
  * Add Puppet modules and edit sourcecode
    ```
-   vim Puppetfile manifests/* test/integration/default/serverspec/*
+   vim Puppetfile 
+   vim manifests/* 
+   vim test/integration/default/serverspec/*
    ```
  * Deploy a test system and login to the system for debugging purposes
    ```
    kitchen list
    kitchen create <instance>
    kitchen login <instance>
-   sudo bash
+      sudo bash
    ```
  * Execute puppet withe the current code
    ```
@@ -127,6 +137,10 @@ Develop and test puppet code
  * Execute serverspec tests
    ```
    kitchen verify <instance>
+   ```
+ * Destroy environment
+   ```
+   kitchen destroy <instance>
    ```
 
 Cheat Sheet
