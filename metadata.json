@@ -7,6 +7,7 @@
   "source": "https://github.com/scoopex/puppet-kitchen_template",
   "project_page": null,
   "dependencies": [
+     { "name":"puppetlabs/stdlib" }
   ],
   "issues_url": "https://github.com/scoopex/puppet-kitchen_template/issues"
 }
