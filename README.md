@@ -38,6 +38,7 @@ Resources
    * https://github.com/test-kitchen/test-kitchen
    * https://docs.chef.io/config_yml_kitchen.html
    * https://docs.chef.io/plugin_kitchen_vagrant.html
+   * https://github.com/neillturner/kitchen-puppet/blob/master/provisioner_options.md
  * serverspec tests
   * resources : http://serverspec.org/resource_types.html
  * puppet modules: https://forge.puppet.com/
