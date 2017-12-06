@@ -58,8 +58,19 @@ How to start:
    * Download und Installation
      ```
      cd /tmp
-     wget https://releases.hashicorp.com/vagrant/2.0.0/vagrant_2.0.0_x86_64.deb
-     sudo dpkg -i vagrant_2.0.0_x86_64.deb
+     wget https://releases.hashicorp.com/vagrant/2.0.1/vagrant_2.0.1_x86_64.deb
+     sudo dpkg -i vagrant_*_x86_64.deb
+     ```
+  * Install docker
+   * see: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-docker-ce
+   * Download and installation (using "zesty" releas on "artful" because docker ubuntu repos not seem to be complete now)
+     ```
+     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+	   sudo add-apt-repository \
+		   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+		   zesty \
+		   stable"
+     apt-get install docker-ce
      ```
   * Clone the repo
     ```
@@ -71,13 +82,19 @@ How to start:
        ```
        gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
        \curl -sSL https://get.rvm.io | bash -s stable
-       source /home/marc/.rvm/scripts/rvm
+       # source this or add this to your .bashrc
+       source ~/.rvm/scripts/rvm
+       exec bash
+       # asks for root password and installs packages like libyaml-dev, libsqlite3-dev, libgdbm-dev, libncurses5-dev, bison, libreadline6-dev
        rvm install "ruby-2.4.1"
        ```
      * Configuration of RVM<br>
        After the rvm installtion a configuration file (~/.rvmrc) should be created with the following content:
        ```
        echo "rvm_autoinstall_bundler_flag=1" >> ~/.rvmrc
+       apt install ruby-dev
+       # Now the automatic invocation of bundler should install all the missing gems
+       cd ..; cd puppet-kitchen_template
        ```
        This allows the convinient automatic installation of bundler.
 
@@ -96,14 +113,7 @@ How to start:
        You will get a notification "Required ruby-2.4.1 is not installed." if this step is missing.
 
        "test-kitchen": Serverspec Test mit Vagrant/Virtualbox/Docker
-       ```
-       exec bash
-       cd ..; cd puppet-kitchen_template
-       # Frägt nach Sudo Passwort: Installiert libyaml-dev, libsqlite3-dev, libgdbm-dev, libncurses5-dev, bison, libreadline6-dev
-       rvm install ruby-2.4
-       # Now the automatic invocation of bundler should install all the missing gems
-       cd ..; cd puppet-kitchen_template
-       ```
+
 Cheat Sheet
 -----------
 
