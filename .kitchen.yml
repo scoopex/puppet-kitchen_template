@@ -26,7 +26,7 @@ platforms:
   - name: ubuntu-16.04-virtualbox-puppet4-kitchen_template
     driver_plugin: vagrant
     driver:
-      vagrantfile_erb: Vagrantfile.erb
+      vagrantfile_erb: vagrantfiles/Vagrantfile-debianoid.erb
       box: ubuntu/xenial64
       box_url: http://atlas.hashicorp.com/ubuntu/boxes/xenial64
       synced_folders:
@@ -39,12 +39,19 @@ platforms:
   - name: debian-stretch-virtualbox-puppet4-kitchen_template
     driver_plugin: vagrant
     driver:
-      vagrantfile_erb: Vagrantfile.erb
+      vagrantfile_erb: vagrantfiles/Vagrantfile-debianoid.erb
       box: debian/contrib-stretch64
       box_url: https://app.vagrantup.com/debian/boxes/contrib-stretch64
       #network:
       #- ['private_network', {ip: '192.168.33.34'}]
       #- ["forwarded_port", {guest: 8080, host: 8080}]
+      #
+  - name: centos7-virtualbox-puppet4-kitchen_template
+    driver_plugin: vagrant
+    driver:
+      vagrantfile_erb: vagrantfiles/Vagrantfile-centos.erb
+      box: centos/7
+      box_url: https://app.vagrantup.com/centos/boxes/7
   - name: ubuntu-16.04-docker-puppet5-kitchen_template
     driver_plugin: docker
     driver_config:
