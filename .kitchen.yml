@@ -46,7 +46,7 @@ platforms:
       #- ['private_network', {ip: '192.168.33.34'}]
       #- ["forwarded_port", {guest: 8080, host: 8080}]
       #
-  - name: centos7-virtualbox-puppet4-kitchen_template
+  - name: centos7-virtualbox-puppet5-kitchen_template
     driver_plugin: vagrant
     driver:
       vagrantfile_erb: vagrantfiles/Vagrantfile-centos.erb
