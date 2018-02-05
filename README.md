@@ -92,7 +92,8 @@ How to start:
        After the rvm installtion a configuration file (~/.rvmrc) should be created with the following content:
        ```
        echo "rvm_autoinstall_bundler_flag=1" >> ~/.rvmrc
-       apt install ruby-dev
+       apt install ruby-dev libgmp-dev
+       gem install bundler
        # Now the automatic invocation of bundler should install all the missing gems
        cd ..; cd puppet-kitchen_template
        ```
