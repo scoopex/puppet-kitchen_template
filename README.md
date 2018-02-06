@@ -185,7 +185,14 @@ Develop and test puppet code
 Use it in your own project
 ------------------------------------
 
- * Fork in on github, name it puppet-<projectname>
+ * Fork in on github, name it puppet-<projectname> or clone directory
+   ```
+   git clone https://github.com/scoopex/puppet-kitchen_template puppet-<projectname>
+   cd puppet-<projectname>
+   rm -rf .git
+   git init
+   git add -A .
+   ```
  * Clone the repo
  * Rename the folder to the name of your project, "puppet-<your-project-name>
  * Replace all occurrences of the template name
