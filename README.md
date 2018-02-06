@@ -199,10 +199,14 @@ Use it in your own project
    ```
    cd <project>
    PROJECT_NAME="$(basename $PWD|sed '~s,puppet-,,')"
-   grep -n -r "kitchen_template" .|cut -d ':' -f1|sort -u|xargs sed -i "~s,kitchen_template,${PROJECT_NAME},g"
+   grep -n -r "kitchen_template" .|cut -d ':' -f1|sort -u|while read A; do sed -i "~s,kitchen_template,${PROJECT_NAME},g" $A; done
    ```
  * Execute the steps in section "Develop and test puppet code"
  * Commit && Push
+   ```
+   git commit -m "Initial checkin" -a
+   git push
+   ```
 
 Merge changes of the template to your project
 ---------------------------------------------
