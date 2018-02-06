@@ -72,6 +72,7 @@ How to start:
 		   stable"
      apt-get install docker-ce
      ```
+  * Add yourself to the docker and vbox group and relogin to your desktop session
   * Clone the repo
     ```
     git clone https://github.com/scoopex/puppet-kitchen_template.git
