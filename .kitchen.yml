@@ -28,7 +28,7 @@ platforms:
     driver:
       vagrantfile_erb: vagrantfiles/Vagrantfile-debianoid.erb
       box: ubuntu/xenial64
-      box_url: http://atlas.hashicorp.com/ubuntu/boxes/xenial64
+      box_url: https://app.vagrantup.com/ubuntu/boxes/xenial64
       synced_folders:
         - ['./files', '/tmp/files']
       #box: bento/ubuntu-17.10
