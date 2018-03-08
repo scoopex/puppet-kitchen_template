@@ -23,7 +23,7 @@ busser:
   ruby_bindir: /usr/bin
 
 platforms:
-  - name: ubuntu-16.04-virtualbox-puppet5-kitchen_template
+  - name: ubuntu-16.04-vbox-puppet5-kitchen_template
     driver_plugin: vagrant
     driver:
       vagrantfile_erb: vagrantfiles/Vagrantfile-debianoid.erb
@@ -38,7 +38,7 @@ platforms:
       #network:
       #- ['private_network', {ip: '192.168.33.33'}]
       #- ["forwarded_port", {guest: 8080, host: 8080}]
-  - name: debian-stretch-virtualbox-puppet5-kitchen_template
+  - name: debian-stretch-vbox-puppet5-kitchen_template
     driver_plugin: vagrant
     driver:
       vagrantfile_erb: vagrantfiles/Vagrantfile-debianoid.erb
@@ -48,7 +48,7 @@ platforms:
       #- ['private_network', {ip: '192.168.33.34'}]
       #- ["forwarded_port", {guest: 8080, host: 8080}]
       #
-  - name: centos7-virtualbox-puppet5-kitchen_template
+  - name: centos7-vbox-puppet5-kitchen_template
     driver_plugin: vagrant
     driver:
       vagrantfile_erb: vagrantfiles/Vagrantfile-centos.erb
