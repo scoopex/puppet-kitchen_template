@@ -23,7 +23,8 @@ busser:
   ruby_bindir: /usr/bin
 
 platforms:
-  - name: ubuntu-16.04-vbox-puppet5-kitchen_template
+    # vagrant automatically generates a hostname, if that exceeds 64 characters vbox fails, see bug #6
+  - name: ubuntu-puppet5-kitchen_template
     driver_plugin: vagrant
     driver:
       vagrantfile_erb: vagrantfiles/Vagrantfile-debianoid.erb
@@ -38,7 +39,8 @@ platforms:
       #network:
       #- ['private_network', {ip: '192.168.33.33'}]
       #- ["forwarded_port", {guest: 8080, host: 8080}]
-  - name: debian-stretch-vbox-puppet5-kitchen_template
+    # vagrant automatically generates a hostname, if that exceeds 64 characters vbox fails, see bug #6
+  - name: debian-kitchen_template
     driver_plugin: vagrant
     driver:
       vagrantfile_erb: vagrantfiles/Vagrantfile-debianoid.erb
@@ -48,13 +50,14 @@ platforms:
       #- ['private_network', {ip: '192.168.33.34'}]
       #- ["forwarded_port", {guest: 8080, host: 8080}]
       #
-  - name: centos7-vbox-puppet5-kitchen_template
+    # vagrant automatically generates a hostname, if that exceeds 64 characters vbox fails, see bug #6
+  - name: centos7-kitchen_template
     driver_plugin: vagrant
     driver:
       vagrantfile_erb: vagrantfiles/Vagrantfile-centos.erb
       box: centos/7
       box_url: https://app.vagrantup.com/centos/boxes/7
-  - name: ubuntu-16.04-docker-puppet5-kitchen_template
+  - name: ubuntu-docker-kitchen_template
     driver_plugin: docker
     driver_config:
 #     dockerfile: Dockerfile
