@@ -190,27 +190,30 @@ Develop and test puppet code
 Use it in your own project
 ------------------------------------
 
+ * Find a new name (name should not contain dashes)
+   ```
+   PROJECT_NAME="puppet-<name>"
+   ```
  * Fork in on github, name it puppet-<projectname> or clone directory
    ```
-   git clone https://github.com/scoopex/puppet-kitchen_template puppet-<projectname>
-   cd puppet-<projectname>
+   git clone https://github.com/scoopex/puppet-kitchen_template $PROJECT_NAME
+   cd $PROJECT_NAME
    rm -rf .git
+   ```
+ * Replace all occurrences of the template name
+   ```
+   grep -n -r "kitchen_template" .|cut -d ':' -f1|sort -u|while read A; do sed -i "~s,kitchen_template,${PROJECT_NAME},g" $A; done
    git init
    git add -A .
    ```
- * Clone the repo
- * Rename the folder to the name of your project, "puppet-<your-project-name>
- * Replace all occurrences of the template name
-   ```
-   cd <project>
-   PROJECT_NAME="$(basename $PWD|sed '~s,puppet-,,')"
-   grep -n -r "kitchen_template" .|cut -d ':' -f1|sort -u|while read A; do sed -i "~s,kitchen_template,${PROJECT_NAME},g" $A; done
-   ```
  * Execute the steps in section "Develop and test puppet code"
+ * Create a git project in your git server
  * Commit && Push
    ```
    git commit -m "Initial checkin" -a
-   git push
+   git remote add origin <repo url>
+   git push -u origin --all
+   git push -u origin --tags
    ```
 
 Merge changes of the template to your project
