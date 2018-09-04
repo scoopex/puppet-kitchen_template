@@ -26,6 +26,9 @@ platforms:
     # vagrant automatically generates a hostname, if that exceeds 64 characters vbox fails, see bug #6
   - name: ubuntu-kitchen_template
     driver_plugin: vagrant
+    driver_config:
+      customize:
+        audio: "none"
     driver:
       vagrantfile_erb: vagrantfiles/Vagrantfile-debianoid.erb
       box: ubuntu/xenial64
@@ -42,6 +45,9 @@ platforms:
     # vagrant automatically generates a hostname, if that exceeds 64 characters vbox fails, see bug #6
   - name: debian-kitchen_template
     driver_plugin: vagrant
+    driver_config:
+      customize:
+        audio: "none"
     driver:
       vagrantfile_erb: vagrantfiles/Vagrantfile-debianoid.erb
       box: debian/contrib-stretch64
@@ -53,6 +59,9 @@ platforms:
     # vagrant automatically generates a hostname, if that exceeds 64 characters vbox fails, see bug #6
   - name: centos7-kitchen_template
     driver_plugin: vagrant
+    driver_config:
+      customize:
+        audio: "none"
     driver:
       vagrantfile_erb: vagrantfiles/Vagrantfile-centos.erb
       box: centos/7
