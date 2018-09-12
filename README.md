@@ -135,6 +135,12 @@ kitchen destroy <suite>              Destroy a certain test system
 kitchen verify -l debug              Get enhanced debug information
 
 librarian-puppet install --verbose   Debug librarian problems
+librarian-puppet show --detailed     Show librarian dependencies
+
+vagrant box list                     Show all vargrant boxes
+vagrant box remove <box>             Remove a vagrant box to fetch 
+                                     a new release on next 
+                                     "kitchen create"
 ------------------------------------------------------------------------
 ```
 
