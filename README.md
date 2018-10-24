@@ -149,8 +149,22 @@ Instance selection/handling:
 * Use "kitchen list" to identify instances
 * Add the full name of the instances to a certain command
    * Kitches selects instances by regex matches, so think about naming schemes
-   * If you do not specify a regex ".*" is automatically assumed
+   * If you do not specify the wildcard all regex ('.\*')is automatically assumed
 * Kitchen automatically create all permutations of suites and platforms, see .kitchen.yml
+
+Inspect instance changes:
+
+* Login to instance, and become root
+  ```
+  kitchen login <instance name>
+  sudo -i
+  ```
+* Inspect changes
+  ```
+  cd /etc/
+  git diff
+  git checkout <file>
+  ```
 
 
 Develop and test puppet code

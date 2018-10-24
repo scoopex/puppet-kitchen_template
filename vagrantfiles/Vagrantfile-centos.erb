@@ -74,6 +74,11 @@ Vagrant.configure("2") do |c|
     yum install -y ruby vim git curl
     mkdir -pv /opt/chef/embedded/bin/
     ln -snf /opt/puppetlabs/puppet/bin/ruby /opt/chef/embedded/bin/
+    cd /etc/
+    dpkg --get-selections|awk '$2 ~ /^install$/{print  $1}'|sort > package.list
+    git init
+    git add -A .
+    git commit -m "initial state" -a
     EOF
  end
 
