@@ -58,8 +58,8 @@ Vagrant.configure("2") do |c|
       -newkey rsa:2048 \
       -keyout /etc/ssl/localtest.key \
       -out /etc/ssl/localtest.crt \
-      -subj '/C=DE/ST=Town/L=Stuttgart/O=BAR/OU=FOO/CN=IT'
-    cat /etc/ssl/localtest.key /etc/ssl/localtest.key > /etc/ssl/localtest.pem
+      -subj '/C=DE/ST=Town/L=Baz/O=BAR/OU=FOO/CN=IT'
+    cat /etc/ssl/localtest.crt /etc/ssl/localtest.key > /etc/ssl/localtest.pem
 
     echo "installing dummy ssl certificate"
     mkdir -p /etc/foo-ssl/star_foobar_net/

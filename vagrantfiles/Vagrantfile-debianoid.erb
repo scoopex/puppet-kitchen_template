@@ -58,8 +58,8 @@ Vagrant.configure("2") do |c|
       -newkey rsa:2048 \
       -keyout /etc/ssl/localtest.key \
       -out /etc/ssl/localtest.crt \
-      -subj '/C=DE/ST=Town/L=Stuttgart/O=BAR/OU=FOO/CN=IT'
-    cat /etc/ssl/localtest.key /etc/ssl/localtest.key > /etc/ssl/localtest.pem
+      -subj '/C=DE/ST=Town/L=Baz/O=BAR/OU=FOO/CN=IT'
+    cat /etc/ssl/localtest.crt /etc/ssl/localtest.key > /etc/ssl/localtest.pem
 
     echo "installing dummy ssl certificate"
     mkdir -p /etc/foo-ssl/star_foobar_net/
@@ -77,7 +77,7 @@ Vagrant.configure("2") do |c|
     wget -P /var/tmp/ http://apt.puppetlabs.com/puppet5-release-$(lsb_release -c -s).deb
     dpkg -i /var/tmp/*.deb
     apt-get update -y && apt-get install -y puppet-agent
-    apt-get install -y ruby vim git curl
+    apt-get install -y ruby vim git curl lvm2
     ln -s /opt/puppetlabs/bin/puppet /usr/bin/puppet
     mkdir -pv /opt/chef/embedded/bin/
     ln -snf /usr/bin/ruby /opt/chef/embedded/bin/

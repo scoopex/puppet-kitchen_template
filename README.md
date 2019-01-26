@@ -147,24 +147,12 @@ vagrant box remove <box>             Remove a vagrant box to fetch
 Instance selection/handling:
 
 * Use "kitchen list" to identify instances
+* Modify the instances by editing '.kitchen.yml'
+* Kitchen automatically create all permutations of suites and platforms, see .kitchen.yml
+* Modify bootstrap code for the vagrant systems in './vagrantfiles'
 * Add the full name of the instances to a certain command
    * Kitches selects instances by regex matches, so think about naming schemes
    * If you do not specify the wildcard all regex ('.\*')is automatically assumed
-* Kitchen automatically create all permutations of suites and platforms, see .kitchen.yml
-
-Inspect instance changes:
-
-* Login to instance, and become root
-  ```
-  kitchen login <instance name>
-  sudo -i
-  ```
-* Inspect changes
-  ```
-  cd /etc/
-  git diff
-  git checkout <file>
-  ```
 
 
 Develop and test puppet code
@@ -205,6 +193,19 @@ Develop and test puppet code
    ```
    kitchen destroy <instance>
    ```
+ * Inspect instance changes:
+    * Login to instance, and become root
+      ```
+      kitchen login <instance name>
+      sudo -i
+      ```
+    * Inspect changes
+      ```
+      cd /etc/
+      git diff
+      git checkout <file>
+      ```
+
 
 
 Use it in your own project
