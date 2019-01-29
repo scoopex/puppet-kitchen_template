@@ -5,12 +5,13 @@ HINT: Use the original project template from https://github.com/scoopex/puppet-k
 
  * Find a new name (name should not contain dashes)
    ```
-   PROJECT_NAME="puppet-<name>"
+   PROJECT_NAME="<name>"
+   REPONAME="puppet-${PROJECT_NAME}"
    ```
  * Fork in on github, name it puppet-<projectname> or clone directory
    ```
-   git clone https://github.com/scoopex/puppet-kitchen_template $PROJECT_NAME
-   cd $PROJECT_NAME
+   git clone https://github.com/scoopex/puppet-kitchen_template $REPONAME
+   cd $REPONAME
    rm -rf .git
    ```
  * Replace all occurrences of the template name
