@@ -19,7 +19,7 @@ HINT: Use the original project template from https://github.com/scoopex/puppet-k
    git init
    git add -A .
    ```
- * Execute the steps in section "Develop and test puppet code"
+ * Execute the steps in section "Develop and test puppet code" in [README.md](README.md)
  * Create a git project in your git server
  * Commit && Push
    ```
