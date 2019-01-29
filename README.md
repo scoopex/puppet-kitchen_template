@@ -211,6 +211,8 @@ Develop and test puppet code
 Use it in your own project
 ------------------------------------
 
+HINT: Use the original project template from https://github.com/scoopex/puppet-kitchen__template (replace "__" with "_")
+
  * Find a new name (name should not contain dashes)
    ```
    PROJECT_NAME="puppet-<name>"
