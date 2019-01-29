@@ -1,7 +1,7 @@
 Use it in your own project
 ------------------------------------
 
-HINT: Use the original project template from https://github.com/scoopex/puppet-kitchen__template (replace "__" with "_")
+HINT: Use the original project template from https://github.com/scoopex/puppet-kitchen_template
 
  * Find a new name (name should not contain dashes)
    ```
@@ -15,7 +15,7 @@ HINT: Use the original project template from https://github.com/scoopex/puppet-k
    ```
  * Replace all occurrences of the template name
    ```
-   grep -n -r "kitchen_template" .|cut -d ':' -f1|sort -u|while read A; do sed -i "~s,kitchen_template,${PROJECT_NAME},g" $A; done
+   grep -n --exclude=README_UPSTREAM.md -r "kitchen_template" .|cut -d ':' -f1|sort -u|while read A; do sed -i "~s,kitchen_template,${PROJECT_NAME},g" $A; done
    git init
    git add -A .
    ```
