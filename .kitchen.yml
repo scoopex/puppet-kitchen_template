@@ -7,7 +7,7 @@ provisioner:
   manifests_path: manifests
   manifest: local.pp
   modules_path: modules
-  hiera_data_path: data
+  hiera_data_path: data_testing
   hiera_deep_merge: true
   puppet_verbose: true
   puppet_debug: false
@@ -15,6 +15,9 @@ provisioner:
   require_puppet_repo: false
   custom_options: '--show_diff'
   verify_host_key: false
+  hiera_config_path: "hiera-testing.yaml"
+  #custom_options: '--show_diff --debug'
+  #custom_options: '--show_diff --noop'
 
 transport:
   name: sftp

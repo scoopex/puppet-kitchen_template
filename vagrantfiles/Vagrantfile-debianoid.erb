@@ -73,8 +73,7 @@ Vagrant.configure("2") do |c|
     puppet* \
     hiera* && \
     apt-get autoremove -y
-    #wget -P /var/tmp/ http://apt.puppetlabs.com/puppetlabs-release-pc1-$(lsb_release -c -s).deb
-    wget -P /var/tmp/ http://apt.puppetlabs.com/puppet5-release-$(lsb_release -c -s).deb
+    wget -P /var/tmp/ http://apt.puppetlabs.com/puppet6-release-$(lsb_release -c -s).deb
     dpkg -i /var/tmp/*.deb
     apt-get update -y && apt-get install -y puppet-agent
     apt-get install -y ruby vim git curl lvm2
