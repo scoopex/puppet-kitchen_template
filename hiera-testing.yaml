@@ -7,5 +7,6 @@ hierarchy:
   - name: "Other YAML hierarchy levels"
     paths: # Can specify an array of paths instead of a single one.
       - "localtest.yaml"
+      - "%{::fqdn}.yaml"
       - "os/%{facts.os.family}.yaml"
       - "common.yaml"
