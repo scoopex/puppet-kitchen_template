@@ -25,15 +25,13 @@ Why do i need that?
   * reduce the need to develop on production or shared testsystems<BR>
     (sometimes you still need this, i.e. if you need special hardware to test your implementation)
   * test multiple variants of a setup on different operating systems<BR>
-    (Ubuntu 14.04, 16.04, OpenSuse, ...)
+    (Ubuntu, CentOS, OpenSuse, ...)
   * prevent time consuming and git history polluting edit locally, commit/push, puppet execution roundtrips
   * automatically install needed puppet modules
   * easily test defined combinations of modules/roles
   * integrate automated tests to your ci-pipeline (i.e. jenkins)
   * reduce resource overhead by simply throwing away outdated setups
   * Execute tests remotely end very time efficient on AWS/EC2, Openstack, Vagrant, ...
-
-
 
 Resources
 ---------
@@ -56,8 +54,8 @@ Resources
   * https://apache.googlesource.com/infrastructure-puppet-kitchen/
  * Librarian: http://librarian-puppet.com/
 
-How to start:
-------------------------------------
+Basic Installtion of the Tooling
+--------------------------------
 
   * Install virtualbox: https://www.virtualbox.org/wiki/Linux_Downloads
   * Installation of vagrant
@@ -80,11 +78,6 @@ How to start:
      apt-get install docker-ce
      ```
   * Add yourself to the docker and vbox group and relogin to your desktop session
-  * Clone the repo
-    ```
-    git clone https://github.com/scoopex/puppet-kitchen_template.git
-    cd puppet-kitchen_template
-    ```
   * Installation of RVM
      * Follow the offical installation procedure at https://rvm.io/, i.e.:
        ```
@@ -122,58 +115,42 @@ How to start:
        You will get a notification "Required ruby-2.4.1 is not installed." if this step is missing.
 
        "test-kitchen": Serverspec Test mit Vagrant/Virtualbox/Docker
+  * Kitchen Bash Completion
+    ```
+    mkdir -p ~/.kitchen
+    cd ~/.kitchen
+    wget https://github.com/MarkBorcherding/test-kitchen-bash-completion/blob/master/kitchen-completion.bash
+    grep -q kitchen-completion.bash ~/.bashrc || echo "source ~/.kitchen/kitchen-completion.bash" >> ~/.bashrc
+    exec bash
+    ```
+  * Clone the repo
+    ```
+    git clone https://github.com/scoopex/puppet-kitchen_template.git
+    cd puppet-kitchen_template
+    ```
+  * Test it
+    ```
+    kitchen create default-ubuntu20-kitchen-template
+    kitchen converge default-ubuntu20-kitchen-template
+    kitchen verify default-ubuntu20-kitchen-template
+    ```
 
-Cheat Sheet
------------
+Play with the environment
+----------------------------
 
-```
-Command                              Description
-------------------------------------------------------------------------
-kitchen list                         View all test suites
-kitchen create                       Create the target system (Vagrant)
-kitchen create <suite>
-kitchen converge <suite>             Execute puppet (Puppet)
-kitchen login <suite>                SSH Login
-kitchen verify <suite>               Execute test suites (servespec)
-kitchen test <suite>                 Create, test and destroy system
-kitchen destroy                      Destroy all test systems
-kitchen destroy <suite>              Destroy a certain test system
-
-kitchen verify -l debug              Get enhanced debug information
-
-librarian-puppet install --verbose   Debug librarian problems
-librarian-puppet show --detailed     Show librarian dependencies
-
-vagrant box list                     Show all vargrant boxes
-vagrant box remove <box>             Remove a vagrant box to fetch 
-                                     a new release on next 
-                                     "kitchen create"
-------------------------------------------------------------------------
-```
-
-Instance selection/handling:
-
-* Use "kitchen list" to identify instances
-* Modify the instances by editing '.kitchen.yml'
-* Kitchen automatically create all permutations of suites and platforms, see .kitchen.yml
-* Modify bootstrap code for the vagrant systems in './vagrantfiles'
-* Add the full name of the instances to a certain command
-   * Kitches selects instances by regex matches, so think about naming schemes
-   * If you do not specify the wildcard all regex ('.\*')is automatically assumed
-
-
-Develop and test puppet code
--------------------------------
+**[Review the upstream documentation to find out how to use it in your own project](README_UPSTREAM.md)**
 
  * Change to the directory
    ```
-   cd puppet-kitchen_template
+   git clone https://github.com/scoopex/puppet-kitchen_template.git
+   mv puppet-kitchen_template
    ```
  * Reset the environment<br>
    (if you want to revert everything)
    ```
    kitchen destroy
-   rm -rf Gemfile.lock Puppetfile.lock .kitchen .librarian/ .tmp/
+   rm -rf Gemfile.lock Puppetfile.lock .kitchen .librarian/ .tmp/ 
+   git init .
    ```
  * Add Puppet modules and edit sourcecode
    ```
@@ -212,3 +189,45 @@ Develop and test puppet code
       git diff
       git checkout <file>
       ```
+
+Cheat Sheet
+-----------
+
+```
+Command                              Description
+------------------------------------------------------------------------
+kitchen list                         View all test suites
+kitchen create                       Create the target system (Vagrant)
+kitchen create <suite>
+kitchen converge <suite>             Execute puppet (Puppet)
+kitchen login <suite>                SSH Login
+kitchen verify <suite>               Execute test suites (servespec)
+kitchen test <suite>                 Create, test and destroy system
+kitchen destroy                      Destroy all test systems
+kitchen destroy <suite>              Destroy a certain test system
+
+kitchen verify -l debug              Get enhanced debug information
+
+librarian-puppet install --verbose   Debug librarian problems
+librarian-puppet show --detailed     Show librarian dependencies
+
+vagrant box list                     Show all vargrant boxes
+vagrant box remove <box>             Remove a vagrant box to fetch 
+                                     a new release on next 
+                                     "kitchen create"
+------------------------------------------------------------------------
+```
+
+Instance selection/handling:
+----------------------------
+
+* Use "kitchen list" to identify instances
+* Modify the instances by editing '.kitchen.yml'
+* Kitchen automatically create all permutations of suites and platforms, see .kitchen.yml
+* Modify bootstrap code for the vagrant systems in './vagrantfiles'
+* Add the full name of the instances to a certain command
+   * Kitches selects instances by regex matches, so think about naming schemes
+   * If you do not specify the wildcard all regex ('.\*')is automatically assumed
+
+
+

@@ -27,6 +27,22 @@ busser:
 
 platforms:
    # vagrant automatically generates a hostname, if that exceeds 64 characters vbox fails, see bug #6
+  - name: ubuntu20-kitchen_template
+    driver_plugin: vagrant
+    driver_config:
+      customize:
+        audio: "none"
+    driver:
+      vagrantfile_erb: vagrantfiles/Vagrantfile-debianoid.erb
+      box: ubuntu/focal64
+      box_url: https://app.vagrantup.com/ubuntu/boxes/focal64
+      synced_folders:
+        - ['./files', '/tmp/files']
+      #network:
+      #- ['private_network', {ip: '192.168.33.33'}]
+      #- ["forwarded_port", {guest: 8080, host: 8080}]
+      #
+   # vagrant automatically generates a hostname, if that exceeds 64 characters vbox fails, see bug #6
   - name: ubuntu18-kitchen_template
     driver_plugin: vagrant
     driver_config:
@@ -43,24 +59,6 @@ platforms:
       #- ["forwarded_port", {guest: 8080, host: 8080}]
       #
    # vagrant automatically generates a hostname, if that exceeds 64 characters vbox fails, see bug #6
-  - name: ubuntu16-kitchen_template
-    driver_plugin: vagrant
-    driver_config:
-      customize:
-        audio: "none"
-    driver:
-      vagrantfile_erb: vagrantfiles/Vagrantfile-debianoid.erb
-      box: ubuntu/xenial64
-      box_url: https://app.vagrantup.com/ubuntu/boxes/xenial64
-      customize:
-        memory: 1024
-      synced_folders:
-        - ['./files', '/tmp/files']
-      #network:
-      #- ['private_network', {ip: '192.168.33.33'}]
-      #- ["forwarded_port", {guest: 8080, host: 8080}]
-
-      #
   - name: debian-kitchen_template
     driver_plugin: vagrant
     driver_config:
