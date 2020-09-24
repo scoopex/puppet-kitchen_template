@@ -6,3 +6,5 @@
 .idea/*
 .librarian/*
 *.lock
+.kitchen.list.yml
+**/.kitchen
