@@ -67,16 +67,7 @@ Basic Installtion of the Tooling
      sudo dpkg -i vagrant_*_x86_64.deb
      ```
   * Install docker
-   * see: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-docker-ce
-   * Download and installation (using "zesty" releas on "artful" because docker ubuntu repos not seem to be complete now)
-     ```
-     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-	   sudo add-apt-repository \
-		   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-		   zesty \
-		   stable"
-     apt-get install docker-ce
-     ```
+    https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-docker-ce
   * Add yourself to the docker and vbox group and relogin to your desktop session
   * Installation of RVM
      * Follow the offical installation procedure at https://rvm.io/, i.e.:
